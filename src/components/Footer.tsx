@@ -1,64 +1,48 @@
-import { FiGithub, FiLinkedin, FiMail, FiHeart } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 
 export default function Footer() {
   const scrollTo = (id: string) => {
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <footer className="bg-slate-900/80 border-t border-white/10 py-10 px-4" role="contentinfo">
+    <footer className="border-t border-white/6 py-10 px-4" style={{ background: 'rgba(8,13,20,0.95)' }} role="contentinfo">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          {/* Branding */}
           <div className="text-center sm:text-left">
             <button
               onClick={() => scrollTo('home')}
-              className="font-heading font-black text-2xl gradient-text mb-1 hover:opacity-80 transition-opacity duration-200"
+              className="font-heading font-black text-xl text-white hover:text-sky-400 transition-colors duration-200 mb-1 block"
               aria-label="Back to top"
             >
-              Ehab Ellati
+              Ehab <span className="text-sky-400">Ellati</span>
             </button>
-            <p className="text-slate-500 text-xs">Software Engineer | AI & GenAI Specialist</p>
+            <p className="text-slate-600 text-xs">Software Engineer · AI & GenAI Specialist</p>
           </div>
 
-          {/* Social */}
-          <div className="flex items-center gap-3">
-            <a
-              href="https://github.com/EhabEllati14"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 hover:border-accent/40 transition-all duration-200 hover:scale-110"
-              aria-label="GitHub"
-            >
-              <FiGithub size={18} aria-hidden="true" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/ehab-ellati/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 hover:border-accent/40 transition-all duration-200 hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <FiLinkedin size={18} aria-hidden="true" />
-            </a>
-            <a
-              href="mailto:ellatiehab@gmail.com"
-              className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 hover:border-accent/40 transition-all duration-200 hover:scale-110"
-              aria-label="Email"
-            >
-              <FiMail size={18} aria-hidden="true" />
-            </a>
+          <div className="flex items-center gap-2">
+            {[
+              { href: 'https://github.com/EhabEllati14', icon: FiGithub, label: 'GitHub' },
+              { href: 'https://www.linkedin.com/in/ehab-ellati/', icon: FiLinkedin, label: 'LinkedIn' },
+              { href: 'mailto:ellatiehab@gmail.com', icon: FiMail, label: 'Email' },
+            ].map(({ href, icon: Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-slate-500 hover:text-white hover:border-sky-400/30 transition-all duration-200 hover:scale-110"
+                aria-label={label}
+              >
+                <Icon size={16} aria-hidden="true" />
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-white/5 text-center">
-          <p className="text-slate-500 text-sm flex items-center justify-center gap-1.5 flex-wrap">
-            <span>© 2026 Ehab Ellati. All rights reserved.</span>
-            <span className="hidden sm:inline text-slate-700">•</span>
-            <span className="flex items-center gap-1">
-              Built with <FiHeart size={12} className="text-red-400 fill-red-400" aria-hidden="true" /> and React + TypeScript
-            </span>
+        <div className="mt-8 pt-6 border-t border-white/4 text-center">
+          <p className="text-slate-600 text-xs">
+            © 2026 Ehab Ellati. All rights reserved.
           </p>
         </div>
       </div>

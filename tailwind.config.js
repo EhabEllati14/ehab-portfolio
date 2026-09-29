@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0f172a',
-        secondary: '#1e293b',
+        primary: '#080d14',
+        secondary: '#0f172a',
         accent: '#38bdf8',
         accentDark: '#0284c7',
         text: '#e2e8f0',
@@ -19,18 +19,14 @@ export default {
         body: ['Inter', 'sans-serif'],
       },
       animation: {
-        'gradient-x': 'gradient-x 6s ease infinite',
-        'float': 'float 3s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 4s ease-in-out infinite',
+        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'spin-slow': 'spin 8s linear infinite',
       },
       keyframes: {
-        'gradient-x': {
-          '0%, 100%': { 'background-position': '0% 50%' },
-          '50%': { 'background-position': '100% 50%' },
-        },
         'float': {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
+          '50%': { transform: 'translateY(-8px)' },
         },
       },
     },

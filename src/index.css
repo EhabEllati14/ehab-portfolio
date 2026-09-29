@@ -11,40 +11,41 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: #0f172a;
+    background-color: #080d14;
     color: #e2e8f0;
   }
 
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #0f172a;
+    background-color: #080d14;
     color: #e2e8f0;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
   }
 
-  /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
   }
   ::-webkit-scrollbar-track {
-    background: #0f172a;
+    background: #080d14;
   }
   ::-webkit-scrollbar-thumb {
     background: #38bdf8;
-    border-radius: 3px;
+    border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #0284c7;
+    background: #0ea5e9;
   }
 }
 
 @layer utilities {
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    @apply py-24 px-4 sm:px-6 lg:px-8;
   }
 
   .container-max {
@@ -52,19 +53,45 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-sky-400 to-cyan-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-sky-400 via-cyan-300 to-sky-500 bg-clip-text text-transparent;
   }
 
   .glass-card {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
   }
 
-  .glow-accent {
-    box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+  .glass-card-hover {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    transition: all 0.25s ease;
+  }
+
+  .glass-card-hover:hover {
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(56,189,248,0.08);
+  }
+
+  .section-tag {
+    @apply inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-sky-400 mb-4;
+  }
+
+  .section-title {
+    @apply font-heading font-bold text-3xl sm:text-4xl text-white mb-4;
+  }
+
+  .divider {
+    @apply w-12 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-300 rounded-full mb-12;
   }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
