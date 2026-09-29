@@ -1,0 +1,96 @@
+import type { Experience } from '../types'
+
+export const experiences: Experience[] = [
+  {
+    id: 1,
+    title: 'R&D AI Engineer Intern',
+    company: 'DataQueue',
+    location: 'Groningen, Netherlands — Remote',
+    period: 'May 2026 – Aug 2026',
+    bullets: [
+      'Developed and optimized Python AI services, REST APIs, and LLM inference workflows using PyTorch and vLLM.',
+      'Benchmarked 20+ LLM and Speech AI models for accuracy, latency, scalability, and production readiness.',
+      'Evaluated model performance and optimized inference workflows, achieving 87% partial accuracy and 178 ms p95 latency.',
+      'Worked with Google Cloud GPUs, Docker, CI/CD, Git, and Linux to support reliable and efficient AI services.',
+    ],
+    tags: ['Python', 'PyTorch', 'vLLM', 'REST APIs', 'Docker', 'GCP', 'LLMs', 'CI/CD'],
+    highlight: true,
+  },
+  {
+    id: 2,
+    title: 'AI Full Stack Engineer Intern',
+    company: 'Logestechs Company',
+    location: 'Riyadh, Saudi Arabia — Remote',
+    period: 'Nov 2025 – Apr 2026',
+    bullets: [
+      'Developed backend and full-stack applications using Java, Spring Boot, Angular, and TypeScript.',
+      'Designed and implemented REST APIs, authentication/authorization, and SQL-backed business modules.',
+      'Integrated frontend and backend services and performed API testing, debugging, and system integration within Agile/Scrum teams.',
+    ],
+    tags: ['Java', 'Spring Boot', 'Angular', 'TypeScript', 'REST APIs', 'SQL', 'Agile/Scrum'],
+  },
+  {
+    id: 3,
+    title: 'Software Engineer Intern',
+    company: 'Foothill Technology Solutions',
+    location: 'United States — Remote',
+    period: 'Jan 2026 – Mar 2026',
+    bullets: [
+      'Developed Python backend services and REST APIs using FastAPI for production-oriented applications.',
+      'Integrated SQL databases and AI-powered features into backend applications.',
+      'Used Docker, Kubernetes, CI/CD, Git, testing, and Agile development practices to support software delivery.',
+    ],
+    tags: ['Python', 'FastAPI', 'SQL', 'Docker', 'Kubernetes', 'CI/CD', 'Git'],
+  },
+  {
+    id: 4,
+    title: 'Data Analyst Intern',
+    company: 'Google & Udacity — Technical Programs',
+    location: 'Remote',
+    period: 'Feb 2025 – Jul 2025',
+    bullets: [
+      'Analyzed structured and unstructured data using SQL and data-processing workflows.',
+      'Built ETL pipelines and supported data quality, database management, and reliable data workflows.',
+      'Performed data analysis to support data-driven decision-making.',
+    ],
+    tags: ['SQL', 'ETL', 'Python', 'Data Analysis', 'Database Management'],
+  },
+  {
+    id: 5,
+    title: 'Software Engineer Intern',
+    company: 'Google & Udacity — Technical Programs',
+    location: 'Remote',
+    period: 'Oct 2024 – Feb 2025',
+    bullets: [
+      'Developed backend applications and REST APIs using Node.js, JavaScript, SQL, and MongoDB.',
+      'Applied microservices, system design, Git, Docker, and software engineering practices to build maintainable services.',
+      'Developed and integrated database-driven backend services with a focus on scalability and maintainability.',
+    ],
+    tags: ['Node.js', 'JavaScript', 'SQL', 'MongoDB', 'Docker', 'Microservices'],
+  },
+  {
+    id: 6,
+    title: 'AI and ML Programming Intern',
+    company: 'Google & Udacity — Technical Programs',
+    location: 'Remote',
+    period: 'Feb 2024 – Sep 2024',
+    bullets: [
+      'Developed AI/ML applications using Python, TensorFlow, deep learning, and computer vision.',
+      'Worked with LLMs, RAG, prompt engineering, model evaluation, and AI system design.',
+      'Applied machine learning and deep learning techniques to practical AI applications.',
+    ],
+    tags: ['Python', 'TensorFlow', 'Deep Learning', 'LLMs', 'RAG', 'Computer Vision'],
+  },
+  {
+    id: 7,
+    title: 'Backend Developer Intern',
+    company: 'EXALT Technologies Ltd.',
+    location: 'Palestine',
+    period: 'Jul 2024 – Sep 2024',
+    bullets: [
+      'Developed REST APIs and backend services using Java, Spring Boot, MongoDB, and SQL.',
+      'Applied OOP, design patterns, unit testing, Docker, and software architecture to build maintainable and scalable applications.',
+    ],
+    tags: ['Java', 'Spring Boot', 'MongoDB', 'SQL', 'OOP', 'Design Patterns', 'Docker'],
+  },
+]
