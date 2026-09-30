@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { FiBriefcase, FiMapPin, FiCalendar, FiTrendingUp } from 'react-icons/fi'
-import SectionHeading from './SectionHeading'
+import { FiArrowUpRight } from 'react-icons/fi'
 import { experiences } from '../data/experience'
 
 export default function Experience() {
@@ -9,102 +8,75 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="experience" className="section-padding bg-primary" aria-label="Work Experience">
-      <div className="max-w-6xl mx-auto">
-        <SectionHeading
-          title="Work Experience"
-          subtitle="7 internships across AI, full-stack, backend, and data engineering with companies in Europe, the Middle East, and the US."
-          icon={FiTrendingUp}
-          tag="Experience"
-        />
+    <section id="experience" className="py-28 sm:py-36 border-t border-white/5" aria-label="Work Experience">
+      <div className="section-wrap">
 
-        <div ref={ref} className="relative">
-          {/* Center line */}
-          <div
-            className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px hidden sm:block"
-            style={{ background: 'linear-gradient(to bottom, rgba(56,189,248,0.4), transparent)' }}
-            aria-hidden="true"
-          />
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-20">
+          <motion.div
+            initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+            viewport={{ once:true }} transition={{ duration:0.6 }}
+          >
+            <p className="label-sm mb-3">Experience</p>
+            <h2 className="display-lg">Where I've<br />built things.</h2>
+          </motion.div>
+          <motion.p
+            initial={{ opacity:0 }} whileInView={{ opacity:1 }}
+            viewport={{ once:true }} transition={{ delay:0.2 }}
+            className="text-slate-600 text-sm max-w-xs leading-relaxed"
+          >
+            7 internships across AI, full-stack, backend, and data engineering — with companies in Europe, the Middle East, and the US.
+          </motion.p>
+        </div>
 
-          <div className="space-y-7">
-            {experiences.map((exp, i) => {
-              const isLeft = i % 2 === 0
-              return (
-                <motion.div
-                  key={exp.id}
-                  initial={{ opacity: 0, x: isLeft ? -32 : 32 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: i * 0.09, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className={`relative sm:flex ${isLeft ? 'sm:justify-start' : 'sm:justify-end'}`}
-                >
-                  {/* Dot */}
-                  <div
-                    className="hidden sm:flex absolute left-1/2 top-7 -translate-x-1/2 w-3 h-3 rounded-full bg-sky-400 border-2 border-primary z-10 items-center justify-center"
+        <div ref={ref} className="space-y-0">
+          {experiences.map((exp, i) => (
+            <motion.article
+              key={exp.id}
+              initial={{ opacity:0, y:20 }}
+              animate={isInView ? { opacity:1, y:0 } : {}}
+              transition={{ delay:i*0.08, duration:0.55, ease:[0.22,1,0.36,1] }}
+              className="group grid sm:grid-cols-[200px_1fr] gap-4 sm:gap-10 py-10 border-b border-white/5 hover:border-white/10 transition-colors duration-300 last:border-0"
+            >
+              {/* Left: meta */}
+              <div className="pt-0.5">
+                <p className="text-slate-600 text-xs font-medium mb-2">{exp.period}</p>
+                <p className="text-slate-500 text-xs leading-relaxed">{exp.location}</p>
+                {exp.highlight && (
+                  <span className="inline-block mt-3 chip text-[0.65rem]">Current</span>
+                )}
+              </div>
+
+              {/* Right: content */}
+              <div>
+                <div className="flex items-start justify-between gap-4 mb-1">
+                  <h3 className="font-heading font-bold text-white text-lg leading-snug group-hover:text-accent transition-colors duration-200">
+                    {exp.title}
+                  </h3>
+                  <FiArrowUpRight
+                    size={16}
+                    className="text-slate-700 group-hover:text-accent transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 flex-shrink-0 mt-1"
                     aria-hidden="true"
                   />
+                </div>
+                <p className="text-accent text-sm font-semibold mb-5">{exp.company}</p>
 
-                  <div
-                    className={`sm:w-[46%] glass-card p-6 transition-all duration-300 hover:-translate-y-1 ${
-                      exp.highlight
-                        ? 'border-sky-400/25 shadow-lg shadow-sky-400/5'
-                        : 'hover:border-white/12'
-                    }`}
-                  >
-                    <div className="flex items-start justify-between gap-3 mb-3">
-                      <div>
-                        <h3 className="font-heading font-semibold text-white text-base leading-snug mb-1">
-                          {exp.title}
-                        </h3>
-                        <div className="flex items-center gap-1.5 text-sky-400 text-sm font-medium">
-                          <FiBriefcase size={12} aria-hidden="true" />
-                          {exp.company}
-                        </div>
-                      </div>
-                      {exp.highlight && (
-                        <span className="flex-shrink-0 text-xs bg-sky-400/10 text-sky-400 border border-sky-400/20 rounded-full px-2.5 py-0.5 font-semibold">
-                          Current
-                        </span>
-                      )}
-                    </div>
+                <ul className="space-y-2 mb-6">
+                  {exp.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-3 text-slate-500 text-sm leading-relaxed">
+                      <span className="w-1 h-1 rounded-full bg-accent/60 mt-2 flex-shrink-0" aria-hidden="true"/>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
 
-                    <div className="flex flex-wrap gap-3 text-slate-500 text-xs mb-5">
-                      <span className="flex items-center gap-1.5">
-                        <FiMapPin size={11} className="text-slate-600" aria-hidden="true" />
-                        {exp.location}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <FiCalendar size={11} className="text-slate-600" aria-hidden="true" />
-                        {exp.period}
-                      </span>
-                    </div>
-
-                    <ul className="space-y-2 mb-5" role="list">
-                      {exp.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-start gap-2.5 text-slate-400 text-sm">
-                          <span
-                            className="w-1 h-1 rounded-full bg-sky-400 mt-2 flex-shrink-0"
-                            aria-hidden="true"
-                          />
-                          <span className="leading-relaxed">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap gap-1.5">
-                      {exp.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-2 py-0.5 bg-white/4 text-slate-400 rounded-md border border-white/6"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {exp.tags.map(t => (
+                    <span key={t} className="pill">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

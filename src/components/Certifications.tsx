@@ -1,61 +1,54 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { FiCalendar, FiShield, FiCpu, FiBarChart2, FiSearch, FiCode, FiCloud, FiZap } from 'react-icons/fi'
-import SectionHeading from './SectionHeading'
 import { certifications } from '../data/certifications'
-
-const certIcons = [FiZap, FiCloud, FiCpu, FiBarChart2, FiBarChart2, FiSearch, FiCode]
 
 export default function Certifications() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="certifications" className="section-padding" style={{ background: 'rgba(15,23,42,0.4)' }} aria-label="Certifications and Courses">
-      <div className="max-w-6xl mx-auto">
-        <SectionHeading
-          title="Certifications"
-          subtitle="Continuous investment in AI engineering, machine learning, cloud, and data science."
-          icon={FiShield}
-          tag="Courses & Certs"
-        />
+    <section id="certifications" className="py-28 sm:py-36 border-t border-white/5" aria-label="Certifications">
+      <div className="section-wrap">
 
-        <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {certifications.map((cert, i) => {
-            const Icon = certIcons[i] ?? FiZap
-            return (
-              <motion.div
-                key={cert.id}
-                initial={{ opacity: 0, y: 18 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: i * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className={`glass-card-hover p-5 flex items-start gap-4 ${
-                  cert.id === 1 ? 'border-sky-400/20' : ''
-                }`}
-              >
-                <div className="w-9 h-9 rounded-lg bg-sky-400/8 border border-sky-400/12 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon size={15} className="text-sky-400" aria-hidden="true" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-heading font-semibold text-white text-sm leading-snug mb-1">
+        <motion.div
+          initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+          viewport={{ once:true }} transition={{ duration:0.6 }}
+          className="mb-20"
+        >
+          <p className="label-sm mb-3">Certifications</p>
+          <h2 className="display-lg">Always<br />learning.</h2>
+        </motion.div>
+
+        <div ref={ref} className="grid sm:grid-cols-2 gap-0">
+          {certifications.map((cert, i) => (
+            <motion.div
+              key={cert.id}
+              initial={{ opacity:0, y:16 }}
+              animate={isInView ? { opacity:1, y:0 } : {}}
+              transition={{ delay:i*0.06, duration:0.5 }}
+              className={`group py-8 border-b border-white/5 hover:border-white/10 transition-colors duration-300 ${
+                i%2===0 ? 'sm:pr-10 sm:border-r' : 'sm:pl-10'
+              }`}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="font-heading font-semibold text-white text-sm leading-snug mb-1 group-hover:text-accent transition-colors duration-200">
                     {cert.name}
                   </h3>
-                  <p className="text-sky-400 text-xs font-medium mb-2">{cert.issuer}</p>
-                  <div className="flex items-center gap-1.5 text-slate-600 text-xs">
-                    <FiCalendar size={10} aria-hidden="true" />
+                  <p className="text-accent text-xs font-medium mb-2">{cert.issuer}</p>
+                  <div className="flex items-center gap-2 text-slate-600 text-xs">
                     <span>{cert.period}</span>
                     {cert.period.includes('Present') && (
-                      <span
-                        className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block ml-0.5"
-                        aria-label="In progress"
-                        aria-hidden="true"
-                      />
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" aria-label="In progress" aria-hidden="true"/>
                     )}
                   </div>
                 </div>
-              </motion.div>
-            )
-          })}
+                {cert.id === 1 && (
+                  <span className="chip text-[0.62rem] flex-shrink-0">Active</span>
+                )}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

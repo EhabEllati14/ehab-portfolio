@@ -1,32 +1,32 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html","./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        primary: '#080d14',
-        secondary: '#0f172a',
+        bg: '#06080f',
+        surface: '#0d1117',
         accent: '#38bdf8',
-        accentDark: '#0284c7',
-        text: '#e2e8f0',
-        muted: '#94a3b8',
+        accent2: '#818cf8',
       },
       fontFamily: {
-        heading: ['Poppins', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['Poppins','sans-serif'],
+        body: ['Inter','sans-serif'],
       },
       animation: {
-        'float': 'float 4s ease-in-out infinite',
-        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'spin-slow': 'spin 8s linear infinite',
+        'float': 'float 5s ease-in-out infinite',
+        'pulse-slow': 'pulse 6s ease-in-out infinite',
+        'spin-slow': 'spin 12s linear infinite',
+        'gradient': 'gradientShift 8s ease infinite',
       },
       keyframes: {
-        'float': {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-8px)' },
+        float: {
+          '0%,100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        gradientShift: {
+          '0%,100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         },
       },
     },

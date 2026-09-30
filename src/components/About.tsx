@@ -1,161 +1,118 @@
-import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiDownload, FiMapPin, FiTrendingUp, FiAward, FiBookOpen, FiStar } from 'react-icons/fi'
+import { motion, useInView } from 'framer-motion'
+import { FiDownload } from 'react-icons/fi'
 
 const stats = [
-  { label: 'GPA', value: '3.5 / 4.0', icon: FiAward },
-  { label: 'Major Average', value: '90%', icon: FiTrendingUp },
-  { label: 'Minor Average', value: '92%', icon: FiBookOpen },
-  { label: 'Honor List', value: '5×', icon: FiStar },
-  { label: 'High School Final', value: '99', icon: FiAward },
+  { num: '3.5', label: 'GPA', sub: 'out of 4.0' },
+  { num: '90%', label: 'Major Avg', sub: 'CS' },
+  { num: '92%', label: 'Minor Avg', sub: 'Business' },
+  { num: '5×', label: 'Honor List', sub: 'Distinction' },
 ]
 
-const milestones = [
-  {
-    age: 'Age 5',
-    text: 'Developed a deep love for mathematics and logic — always thinking in patterns, solving puzzles, and building mental models.',
-  },
-  {
-    age: 'Age 15',
-    text: 'Led a volunteer travel team to Cyprus — an early lesson in leadership, cross-cultural communication, and coordinating people toward a shared goal.',
-  },
-  {
-    age: 'High School',
-    text: 'Chose the scientific track driven by physics, math, and logical thinking. Scored 99 in the final exam and chose Computer Science over medicine, knowing it was where I belonged.',
-  },
-  {
-    age: 'University',
-    text: 'Graduated with Distinction, GPA 3.5/4.0, and 5× Honor List. In Year 3, added a Business Administration minor to bridge the gap between building products and understanding the people and markets they serve.',
-  },
-  {
-    age: 'Leadership',
-    text: 'Selected as Team Lead of the Computer Science club and IT Student Ambassador — organized career events, startup workshops, and helped fellow students turn ambitions into plans.',
-  },
-  {
-    age: 'Startup',
-    text: 'Founded a startup at 20, built an MVP, and secured international funding from Switzerland. Put it on hold to complete university — but the founder mindset never left.',
-  },
-  {
-    age: 'Erasmus+',
-    text: 'Selected for the Erasmus+ Exchange Program at the University of Messina, Italy. Earned the Honor List while building relationships with peers from across Europe and sharpening both technical and cross-cultural skills.',
-  },
-  {
-    age: 'Today',
-    text: 'Working at the intersection of AI engineering, software development, and business strategy. Building intelligent systems, growing fast, and looking for the team and problem worth pouring into.',
-  },
+const story = [
+  { mark: 'Age 5', text: 'Math, puzzles, and logic — the obsession started early. Not just playing games, but understanding the rules behind them.' },
+  { mark: 'Age 15', text: 'Led a volunteer travel team to Cyprus. First real lesson in coordinating people, handling pressure, and earning trust as a leader.' },
+  { mark: 'High School', text: 'Chose the scientific track for physics and math. Scored 99 in the national final exam, then chose Computer Science over medicine — knowing where the future was.' },
+  { mark: 'Year 3', text: 'Added a Business Administration minor. Because building great products isn\'t just about code — it\'s about understanding markets, people, and strategy.' },
+  { mark: 'CS Club', text: 'Elected Team Lead of the Computer Science club and IT Student Ambassador. Ran career events, startup workshops, and helped students go from dreaming to executing.' },
+  { mark: 'Startup', text: 'Founded a company at 20. Built the MVP. Secured funding from Switzerland. Put it on hold to finish university — but never stopped thinking like a founder.' },
+  { mark: 'Erasmus+', text: 'Selected for the Erasmus+ Exchange Program in Messina, Italy. Earned the Honor List abroad while building real cross-cultural skills and friendships across Europe.' },
+  { mark: 'Today', text: 'Working at the intersection of AI, engineering, and business. Looking for the right team and the right problem to go deep on.' },
 ]
 
 export default function About() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="about" className="section-padding bg-primary" aria-label="About Ehab Ellati">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-28 sm:py-36" aria-label="About">
+      <div className="section-wrap">
 
-        {/* Section label */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="section-tag"><FiBookOpen size={13} aria-hidden="true" />About Me</p>
-          <h2 className="section-title">The Story Behind the Engineer</h2>
-          <div className="divider" />
-        </motion.div>
-
-        <div ref={ref} className="grid lg:grid-cols-2 gap-14 items-start">
-
-          {/* Left: Story */}
+        {/* Header row */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-20">
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+            viewport={{ once:true }} transition={{ duration:0.6 }}
           >
-            <div className="flex items-center gap-2 text-slate-500 text-sm mb-8">
-              <FiMapPin size={13} className="text-sky-400" aria-hidden="true" />
-              <span className="text-slate-400">Jerusalem, Israel</span>
-              <span className="text-slate-700">·</span>
-              <span className="text-green-400 font-medium text-xs">Open to Opportunities</span>
-            </div>
-
-            <div className="space-y-5 text-slate-400 text-base leading-relaxed mb-10">
-              <p>
-                I'm a Computer Science graduate with Distinction and a Minor in Business Administration.
-                My path into technology started early — at 5, I was fascinated by math and logic. That curiosity never stopped.
-              </p>
-              <p>
-                What separates me from most engineers is that I don't just write code. I understand systems,
-                communicate across functions, and think about products from both an engineering and business perspective.
-                That's exactly why I added the Business Administration minor — to become a more complete builder.
-              </p>
-              <p>
-                I've worked across 7 internships in AI, full-stack, backend, and data engineering — with companies
-                in the Netherlands, Saudi Arabia, the US, and more. I learn fast, take ownership seriously, and build
-                things with long-term quality in mind.
-              </p>
-            </div>
-
-            <a
-              href="/Ehab_Ellati_CV.pdf"
-              download="Ehab_Ellati_CV.pdf"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-sky-500 hover:bg-sky-400 text-white font-heading font-semibold rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-sky-500/25 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-primary"
-            >
-              <FiDownload size={15} aria-hidden="true" />
-              Download CV
-            </a>
+            <p className="label-sm mb-3">About</p>
+            <h2 className="display-lg">The story<br />behind the engineer.</h2>
           </motion.div>
+          <motion.a
+            initial={{ opacity:0 }} whileInView={{ opacity:1 }}
+            viewport={{ once:true }} transition={{ delay:0.3 }}
+            href="/Ehab_Ellati_CV.pdf" download="Ehab_Ellati_CV.pdf"
+            className="self-start sm:self-auto flex items-center gap-2 px-6 py-3 bg-accent text-bg font-heading font-bold text-sm rounded-2xl hover:bg-sky-300 transition-all duration-200 hover:scale-105 hover:shadow-2xl hover:shadow-accent/25"
+          >
+            <FiDownload size={14} aria-hidden="true"/>
+            Download CV
+          </motion.a>
+        </div>
 
-          {/* Right: Stats + Timeline */}
+        <div ref={ref} className="grid lg:grid-cols-[1fr_1.1fr] gap-16 lg:gap-24">
+
+          {/* Left: Stats + intro text */}
           <div>
-            {/* Stat Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-12">
-              {stats.map((stat, i) => (
+            {/* Big numbers */}
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 mb-14">
+              {stats.map((s, i) => (
                 <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.08 * i, duration: 0.5 }}
-                  className="glass-card p-4 text-center hover:border-sky-400/25 transition-all duration-250"
+                  key={s.label}
+                  initial={{ opacity:0, y:16 }}
+                  animate={isInView ? { opacity:1, y:0 } : {}}
+                  transition={{ delay:i*0.08, duration:0.55 }}
                 >
-                  <stat.icon size={16} className="text-sky-400 mx-auto mb-2" aria-hidden="true" />
-                  <div className="font-heading font-bold text-xl text-white">{stat.value}</div>
-                  <div className="text-slate-500 text-xs mt-1">{stat.label}</div>
+                  <div className="stat-num gt2 mb-0.5">{s.num}</div>
+                  <div className="text-white text-sm font-semibold">{s.label}</div>
+                  <div className="text-slate-600 text-xs mt-0.5">{s.sub}</div>
                 </motion.div>
               ))}
             </div>
 
-            {/* Timeline */}
-            <h3 className="font-heading font-semibold text-base text-slate-300 uppercase tracking-widest mb-6">
-              My Journey
-            </h3>
-            <div className="relative">
-              <div
-                className="absolute left-0 top-2 bottom-2 w-px"
-                style={{ background: 'linear-gradient(to bottom, #38bdf8, transparent)' }}
-                aria-hidden="true"
-              />
-              <div className="space-y-7 pl-8">
-                {milestones.map((m, i) => (
-                  <motion.div
-                    key={m.age}
-                    initial={{ opacity: 0, x: 16 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.06 * i, duration: 0.5 }}
-                    className="relative"
-                  >
-                    <div
-                      className="absolute -left-8 top-1.5 w-2 h-2 rounded-full bg-sky-400 border-2 border-primary"
-                      aria-hidden="true"
-                    />
-                    <span className="inline-block text-xs font-semibold text-sky-400 bg-sky-400/8 border border-sky-400/15 rounded-md px-2.5 py-0.5 mb-1.5">
-                      {m.age}
-                    </span>
-                    <p className="text-slate-500 text-sm leading-relaxed">{m.text}</p>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="thin-line mb-10" aria-hidden="true"/>
+
+            {/* Bio */}
+            <motion.div
+              initial={{ opacity:0, y:12 }}
+              animate={isInView ? { opacity:1, y:0 } : {}}
+              transition={{ delay:0.35, duration:0.6 }}
+              className="space-y-4 text-slate-500 text-base leading-relaxed"
+            >
+              <p>
+                I'm a Computer Science graduate with Distinction and a Minor in Business Administration.
+                Not just an engineer who writes code — someone who understands systems, communicates across
+                teams, and thinks about products from both a technical and business lens.
+              </p>
+              <p>
+                I've worked across 7 internships in AI, full-stack, backend, and data engineering with
+                companies in the Netherlands, Saudi Arabia, the US, and more.
+                Fast learner. High ownership. Builder at heart.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Right: Story timeline */}
+          <div>
+            <p className="label-sm mb-8">Journey</p>
+            <div className="relative space-y-0">
+              {story.map((s, i) => (
+                <motion.div
+                  key={s.mark}
+                  initial={{ opacity:0, x:16 }}
+                  animate={isInView ? { opacity:1, x:0 } : {}}
+                  transition={{ delay:i*0.06, duration:0.5, ease:[0.22,1,0.36,1] }}
+                  className="group relative pl-6 pb-8 last:pb-0 border-l border-white/6 hover:border-accent/30 transition-colors duration-300"
+                >
+                  {/* dot */}
+                  <div
+                    className="absolute -left-[4.5px] top-1 w-2 h-2 rounded-full border-2 border-bg bg-slate-700 group-hover:bg-accent group-hover:border-accent transition-all duration-300"
+                    aria-hidden="true"
+                  />
+                  <div className="chip mb-2 text-[0.65rem]">{s.mark}</div>
+                  <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-400 transition-colors duration-200">
+                    {s.text}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </div>
 
