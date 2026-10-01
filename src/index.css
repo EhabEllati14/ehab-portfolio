@@ -1,126 +1,89 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html {
-    scroll-behavior: smooth;
-    background: #06080f;
-    color: #cbd5e1;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Inter', sans-serif;
-    background: #06080f;
-    color: #cbd5e1;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
-  h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; }
-  ::selection { background: rgba(56,189,248,0.25); color: #fff; }
+  /* Dark (default) */
+  body { background: #06080f; color: #cbd5e1; }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #06080f; }
   ::-webkit-scrollbar-thumb { background: rgba(56,189,248,0.4); border-radius: 99px; }
+
+  /* Light */
+  .light body { background: #f1f5f9; color: #1e293b; }
+  .light ::-webkit-scrollbar-track { background: #f1f5f9; }
+
+  h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; }
+  ::selection { background: rgba(56,189,248,0.25); color: #fff; }
 }
 
 @layer utilities {
   .display-xl {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: clamp(3.2rem, 9vw, 7.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    color: #fff;
+    font-family: 'Poppins', sans-serif; font-weight: 900;
+    font-size: clamp(3.2rem, 9vw, 7.5rem); line-height: 0.95; letter-spacing: -0.03em;
   }
   .display-lg {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2.2rem, 5vw, 4.5rem);
-    line-height: 1;
-    letter-spacing: -0.025em;
-    color: #fff;
-  }
-  .display-md {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: #fff;
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -0.025em;
   }
   .label-sm {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #38bdf8;
+    font-family: 'Inter', sans-serif; font-weight: 600;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: #38bdf8;
   }
   .gt {
     background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #06b6d4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   .gt2 {
     background: linear-gradient(90deg, #38bdf8, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-  .text-stroke {
-    -webkit-text-stroke: 1.5px rgba(56,189,248,0.4);
-    color: transparent;
-  }
-  .thin-line {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, rgba(56,189,248,0.3), transparent);
-  }
+  .text-stroke { -webkit-text-stroke: 1.5px rgba(56,189,248,0.4); color: transparent; }
+  .thin-line { width: 100%; height: 1px; background: linear-gradient(to right, rgba(56,189,248,0.3), transparent); }
+
+  /* Dark chip/pill */
   .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    padding: 0.25rem 0.75rem;
-    border-radius: 99px;
-    border: 1px solid rgba(56,189,248,0.2);
-    background: rgba(56,189,248,0.06);
-    color: #38bdf8;
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+    padding: 0.25rem 0.75rem; border-radius: 99px;
+    border: 1px solid rgba(56,189,248,0.2); background: rgba(56,189,248,0.06); color: #38bdf8;
   }
   .pill {
-    font-size: 0.7rem;
-    font-weight: 500;
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.07);
-    color: #94a3b8;
+    font-size: 0.7rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 6px;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: #94a3b8;
     transition: all 0.15s;
   }
-  .pill:hover {
-    background: rgba(56,189,248,0.1);
-    border-color: rgba(56,189,248,0.25);
-    color: #7dd3fc;
-  }
-  .section-wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
+  .pill:hover { background: rgba(56,189,248,0.1); border-color: rgba(56,189,248,0.25); color: #7dd3fc; }
+
+  /* Light overrides for pill */
+  .light .pill { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); color: #475569; }
+  .light .pill:hover { background: rgba(56,189,248,0.12); border-color: rgba(56,189,248,0.3); color: #0284c7; }
+
+  .section-wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
   .stat-num {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    color: #fff;
+    font-family: 'Poppins', sans-serif; font-weight: 900;
+    font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1; letter-spacing: -0.03em;
   }
+
+  /* Section borders */
+  .section-border { border-top: 1px solid rgba(255,255,255,0.05); }
+  .light .section-border { border-top: 1px solid rgba(0,0,0,0.07); }
+
+  /* Glass card surface */
+  .surface { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; }
+  .light .surface { background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -131,25 +94,3 @@
   }
 }
 
-
-/* ── Light Mode ── */
-[data-theme="light"] {
-  --bg: #f8fafc;
-  --text: #0f172a;
-}
-[data-theme="light"] .display-xl,
-[data-theme="light"] .display-lg,
-[data-theme="light"] .display-md { color: #0f172a; }
-[data-theme="light"] .section-wrap { color: #334155; }
-[data-theme="light"] section { border-color: rgba(0,0,0,0.06) !important; }
-[data-theme="light"] .thin-line { background: linear-gradient(to right, rgba(56,189,248,0.4), transparent); }
-[data-theme="light"] .pill {
-  background: rgba(0,0,0,0.04);
-  border-color: rgba(0,0,0,0.08);
-  color: #475569;
-}
-[data-theme="light"] .pill:hover {
-  background: rgba(56,189,248,0.1);
-  border-color: rgba(56,189,248,0.3);
-  color: #0284c7;
-}
