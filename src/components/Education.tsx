@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { FiAward, FiGlobe } from 'react-icons/fi'
 import { educationList } from '../data/education'
@@ -12,8 +12,8 @@ export default function Education() {
       <div className="section-wrap">
 
         <motion.div
-          initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
-          viewport={{ once:true }} transition={{ duration:0.6 }}
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="mb-20"
         >
           <p className="label-sm mb-3">Education</p>
@@ -24,9 +24,9 @@ export default function Education() {
           {educationList.map((edu, i) => (
             <motion.div
               key={edu.id}
-              initial={{ opacity:0, y:20 }}
-              animate={isInView ? { opacity:1, y:0 } : {}}
-              transition={{ delay:i*0.12, duration:0.55 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.12, duration: 0.55 }}
               className="grid sm:grid-cols-[200px_1fr] gap-4 sm:gap-10 py-10 border-b border-white/5 last:border-0 group hover:border-white/10 transition-colors duration-300"
             >
               {/* Left: dates + location */}
@@ -34,7 +34,7 @@ export default function Education() {
                 <p className="text-slate-600 text-xs font-medium mb-2">{edu.period}</p>
                 {edu.location && (
                   <div className="flex items-center gap-1.5 text-slate-600 text-xs">
-                    <FiGlobe size={10} aria-hidden="true"/>
+                    <FiGlobe size={10} aria-hidden="true" />
                     {edu.location}
                   </div>
                 )}
@@ -51,7 +51,7 @@ export default function Education() {
                 <div className="flex flex-wrap gap-2 mb-5">
                   {edu.gpa && (
                     <span className="flex items-center gap-1.5 chip text-[0.65rem]">
-                      <FiAward size={10} aria-hidden="true"/>
+                      <FiAward size={10} aria-hidden="true" />
                       GPA {edu.gpa}
                     </span>
                   )}
@@ -59,24 +59,38 @@ export default function Education() {
                     <span className="chip text-[0.65rem]">Avg {edu.average}</span>
                   )}
                   {edu.distinction && (
-                    <span style={{ background:'rgba(251,191,36,0.08)', borderColor:'rgba(251,191,36,0.2)', color:'#fbbf24' }}
-                      className="chip text-[0.65rem]">Distinction</span>
+                    <span
+                      style={{ background: 'rgba(251,191,36,0.08)', borderColor: 'rgba(251,191,36,0.2)', color: '#fbbf24' }}
+                      className="chip text-[0.65rem]"
+                    >
+                      Distinction
+                    </span>
                   )}
                   {edu.honorList && (
-                    <span style={{ background:'rgba(167,139,250,0.08)', borderColor:'rgba(167,139,250,0.2)', color:'#a78bfa' }}
-                      className="chip text-[0.65rem]">{edu.honorList}</span>
+                    <span
+                      style={{ background: 'rgba(167,139,250,0.08)', borderColor: 'rgba(167,139,250,0.2)', color: '#a78bfa' }}
+                      className="chip text-[0.65rem]"
+                    >
+                      {edu.honorList}
+                    </span>
                   )}
                 </div>
 
                 {edu.courses && edu.courses.length > 0 && (
-                  <div>
-                    <p className="label-sm text-slate-600 mb-2 text-[0.62rem]">Relevant Courses</p>
+                  <div className="mb-4">
+                    <p className="label-sm text-slate-600 mb-2 text-[0.62rem]">Courses</p>
                     <div className="flex flex-wrap gap-1.5">
                       {edu.courses.map(c => (
                         <span key={c} className="pill">{c}</span>
                       ))}
                     </div>
                   </div>
+                )}
+
+                {edu.description && (
+                  <p className="text-slate-500 text-sm leading-relaxed mt-4 border-l-2 border-accent/20 pl-4 italic">
+                    {edu.description}
+                  </p>
                 )}
               </div>
             </motion.div>

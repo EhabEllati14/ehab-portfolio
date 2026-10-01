@@ -130,3 +130,26 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* ── Light Mode ── */
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --text: #0f172a;
+}
+[data-theme="light"] .display-xl,
+[data-theme="light"] .display-lg,
+[data-theme="light"] .display-md { color: #0f172a; }
+[data-theme="light"] .section-wrap { color: #334155; }
+[data-theme="light"] section { border-color: rgba(0,0,0,0.06) !important; }
+[data-theme="light"] .thin-line { background: linear-gradient(to right, rgba(56,189,248,0.4), transparent); }
+[data-theme="light"] .pill {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.08);
+  color: #475569;
+}
+[data-theme="light"] .pill:hover {
+  background: rgba(56,189,248,0.1);
+  border-color: rgba(56,189,248,0.3);
+  color: #0284c7;
+}

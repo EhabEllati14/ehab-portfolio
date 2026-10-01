@@ -1,4 +1,4 @@
-import type { Education } from '../types'
+﻿import type { Education } from '../types'
 
 export const educationList: Education[] = [
   {
@@ -10,7 +10,7 @@ export const educationList: Education[] = [
     gpa: '3.5 / 4.0',
     average: '90%',
     distinction: true,
-    honorList: '5× Honor List',
+    honorList: '5x Honor List',
     courses: ['Artificial Intelligence', 'Machine Learning', 'Big Data', 'Data Structures & Algorithms'],
     badge: '',
   },
@@ -31,6 +31,8 @@ export const educationList: Education[] = [
     period: 'Feb 2024 – Jul 2024',
     location: 'Messina, Italy',
     honorList: 'Honor List',
+    courses: ['AI & Machine Learning Engineering', 'Big Data', 'System Security & Blockchain'],
+    description: 'One of the most defining experiences of my life. Studied at an Italian university through the Erasmus+ Exchange Program, earned the Honor List, and grew in both technical depth and personal independence. Learned Italian (A2), built lasting friendships across Europe, and developed real cross-cultural communication and adaptability.',
     badge: '',
   },
 ]

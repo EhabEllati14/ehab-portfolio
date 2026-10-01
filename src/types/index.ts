@@ -1,4 +1,4 @@
-export interface Experience {
+﻿export interface Experience {
   id: number
   title: string
   company: string
@@ -37,6 +37,7 @@ export interface Education {
   honorList?: string
   courses?: string[]
   badge?: string
+  description?: string
 }
 
 export interface Certification {

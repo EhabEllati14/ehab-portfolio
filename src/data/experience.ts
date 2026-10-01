@@ -1,11 +1,11 @@
-import type { Experience } from '../types'
+﻿import type { Experience } from '../types'
 
 export const experiences: Experience[] = [
   {
     id: 1,
     title: 'R&D AI Engineer Intern',
     company: 'DataQueue',
-    location: 'Groningen, Netherlands — Remote',
+    location: 'Groningen, Netherlands',
     period: 'May 2026 – Aug 2026',
     bullets: [
       'Developed and optimized Python AI services, REST APIs, and LLM inference workflows using PyTorch and vLLM.',
@@ -14,18 +14,18 @@ export const experiences: Experience[] = [
       'Worked with Google Cloud GPUs, Docker, CI/CD, Git, and Linux to support reliable and efficient AI services.',
     ],
     tags: ['Python', 'PyTorch', 'vLLM', 'REST APIs', 'Docker', 'GCP', 'LLMs', 'CI/CD'],
-    highlight: true,
+    highlight: false,
   },
   {
     id: 2,
     title: 'AI Full Stack Engineer Intern',
     company: 'Logestechs Company',
-    location: 'Riyadh, Saudi Arabia — Remote',
+    location: 'Riyadh, Saudi Arabia',
     period: 'Nov 2025 – Apr 2026',
     bullets: [
       'Developed backend and full-stack applications using Java, Spring Boot, Angular, and TypeScript.',
       'Designed and implemented REST APIs, authentication/authorization, and SQL-backed business modules.',
-      'Integrated frontend and backend services and performed API testing, debugging, and system integration within Agile/Scrum teams.',
+      'Integrated frontend and backend services, performing API testing, debugging, and system integration within Agile/Scrum teams.',
     ],
     tags: ['Java', 'Spring Boot', 'Angular', 'TypeScript', 'REST APIs', 'SQL', 'Agile/Scrum'],
   },
@@ -33,7 +33,7 @@ export const experiences: Experience[] = [
     id: 3,
     title: 'Software Engineer Intern',
     company: 'Foothill Technology Solutions',
-    location: 'United States — Remote',
+    location: 'United States',
     period: 'Jan 2026 – Mar 2026',
     bullets: [
       'Developed Python backend services and REST APIs using FastAPI for production-oriented applications.',
@@ -45,7 +45,7 @@ export const experiences: Experience[] = [
   {
     id: 4,
     title: 'Data Analyst Intern',
-    company: 'Google & Udacity — Technical Programs',
+    company: 'Google & Udacity',
     location: 'Remote',
     period: 'Feb 2025 – Jul 2025',
     bullets: [
@@ -58,7 +58,7 @@ export const experiences: Experience[] = [
   {
     id: 5,
     title: 'Software Engineer Intern',
-    company: 'Google & Udacity — Technical Programs',
+    company: 'Google & Udacity',
     location: 'Remote',
     period: 'Oct 2024 – Feb 2025',
     bullets: [
@@ -71,7 +71,7 @@ export const experiences: Experience[] = [
   {
     id: 6,
     title: 'AI and ML Programming Intern',
-    company: 'Google & Udacity — Technical Programs',
+    company: 'Google & Udacity',
     location: 'Remote',
     period: 'Feb 2024 – Sep 2024',
     bullets: [
@@ -85,7 +85,7 @@ export const experiences: Experience[] = [
     id: 7,
     title: 'Backend Developer Intern',
     company: 'EXALT Technologies Ltd.',
-    location: 'Palestine',
+    location: 'Remote',
     period: 'Jul 2024 – Sep 2024',
     bullets: [
       'Developed REST APIs and backend services using Java, Spring Boot, MongoDB, and SQL.',
