@@ -8,6 +8,16 @@ export default {
         surface: '#0d1117',
         accent: '#38bdf8',
         accent2: '#818cf8',
+        journey: {
+          bg: '#180b05',
+          tire: '#241209',
+          deep: '#622b14',
+          copper: '#c08a55',
+          muted: '#978f66',
+          body: '#cdbf94',
+          cream: '#e4d6a9',
+          ink: '#f3ecd6',
+        },
       },
       fontFamily: {
         heading: ['Poppins','sans-serif'],
