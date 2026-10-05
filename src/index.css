@@ -86,6 +86,16 @@
   .light .surface { background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 }
 
+/* Journey rover */
+@keyframes rover-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-1.5px); } }
+@keyframes rover-dust { 0% { opacity: 0; transform: translateY(4px); } 40% { opacity: .9; } 100% { opacity: 0; transform: translateY(-6px); } }
+@keyframes rover-glow { 0%,45% { opacity: 1; } 50%,95% { opacity: .15; } 100% { opacity: 1; } }
+@keyframes rover-spin { to { transform: rotate(360deg); } }
+.rover-wheel-spin { transform-box: fill-box; transform-origin: center; animation: rover-spin .4s linear infinite; }
+.rover-bob { animation: rover-bob .32s ease-in-out infinite; }
+.rover-dust { animation: rover-dust .45s ease-out infinite; }
+.rover-tip-glow { animation: rover-glow 1s steps(1,end) infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
