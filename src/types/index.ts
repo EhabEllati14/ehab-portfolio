@@ -53,3 +53,9 @@ export interface Stat {
   value: string
   icon: string
 }
+
+export interface JourneyStop {
+  id: number
+  label: string
+  text: string
+}
